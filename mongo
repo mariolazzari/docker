@@ -1,0 +1,7 @@
+// MongoDB
+
+// create volume
+docker create -v /data/db --name MongoData alpine
+
+// create container
+docker run -p 27017:27017 --name mongo -d --volumes-from MongoData mongo

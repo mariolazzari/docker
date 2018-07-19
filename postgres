@@ -1,0 +1,7 @@
+// Postgres
+
+// create volume
+docker create -v /var/lib/postgresql/data --name PostgresData alpine
+
+// create container
+docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=password -d --volumes-from PostgresData postgres
