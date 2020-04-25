@@ -1,0 +1,2 @@
+docker run --name sqlserver -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=4zl3A,75" -p 1433:1433 -v c:/Docker/sqlserver/data:/var/opt/mssql/data -v c:/Docker/sqlserver/log:/var/opt/mssql/log -v c:/Docker/sqlserver/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2019-latest
+
