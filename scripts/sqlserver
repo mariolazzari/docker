@@ -4,6 +4,6 @@ docker run --name sql2019 -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=4zl3A,75" -p 
 
 https://blog.sqlauthority.com/2019/04/20/sql-server-docker-volume-and-persistent-storage/
 
-docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=4zl3A,75" -p 1433:1433 --name sql2019 -v sql2019:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2019-latest
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=4zl3A,75"   -p 1433:1433 --name mssql -v mssql:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2019-latest
 
 docker cp anod sql2019:/var/opt/mssql/data/anod.bak
