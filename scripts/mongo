@@ -8,3 +8,6 @@ docker run -p 27017:27017 --name mongo -d --volumes-from MongoData mongo
 
 // volume
 docker run -p 27017:27017 --name mongo -v /mnt/c/Docker/mongo:/data -d mongo
+
+// mongo client
+docker run -d -p 27018:3000  --name mongoclient -v /mnt/c/Docker/mongo:/data mongoclient/mongoclient 

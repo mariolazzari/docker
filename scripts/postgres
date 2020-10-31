@@ -1,3 +1,4 @@
 docker run -d --name postgres -e POSTGRES_PASSWORD=4zl3A,75 -e PGDATA=/var/lib/postgresql/data/pgdata -v c:/Docker/postgres:/var/lib/postgresql/data postgres
 
-docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=4zl3A,75 -e PGDATA=/var/lib/postgresql/data/pgdata -v /mnt/c/Docker/postgres:/var/lib/postgresql postgres
+docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=4zl3A,75 -e PGDATA
+
