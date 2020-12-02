@@ -1,0 +1,1 @@
+docker run -d -p 8600:8080 bharathshetty4/supermario
