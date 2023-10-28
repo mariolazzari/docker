@@ -1,4 +1,4 @@
-docker run --name mssql -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=password" -p 1433:1433 -v /mnt/c/Docker/mssql/data:/var/opt/mssql/data -v /mnt/c/Docker/mssql/log:/var/opt/mssql/log -v /mnt/c/Docker/mssql/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2019-latest
+docker run --name mssql -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=P@ssword2023" -p 1433:1433 -v /Users/mariolazzari/Docker/mssql/data:/var/opt/mssql/data -v /Users/mariolazzari/Docker/mssql/log:/var/opt/mssql/log -v /Users/mariolazzari/Docker/mssql/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2019-latest
 
 
 https://blog.sqlauthority.com/2019/04/20/sql-server-docker-volume-and-persistent-storage/

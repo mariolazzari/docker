@@ -1,1 +1,7 @@
-docker run -p 4712:4712 -p 4662:4662 -p 4672:4672/udp -e GUI_PWD=password -v ./amule/conf:/home/amule/.aMule -v ./amule/incoming:/incoming -v ./amule/tmp:/temp tchabaud/amule
+docker run -p 4712:4712 -p 4662:4662 -p 4672:4672/udp -e GUI_PWD=password -v amule/conf:/home/amule/.aMule -v amule/incoming:/incoming -v amule/tmp:/temp tchabaud/amule
+
+
+
+docker run -p 4711:4711 -p 4662:4662 -p 4672:4672/udp
+    -e WEBUI_PWD=password
+    -v ./amule/conf:/home/amule/.aMule -v ./amule/incoming:/incoming -v ./amule/tmp:/temp tchabaud/amule
