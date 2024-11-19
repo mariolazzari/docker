@@ -1,1 +1,0 @@
-docker run -d  -p 1880:1880 -v /mnt/c/Docker/nodered:/data --name nodered nodered/node-red
