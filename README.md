@@ -1,6 +1,6 @@
 # Docker scripts
 
-## amule
+## aMule
 
 ```sh
 docker run -p 4712:4712 -p 4662:4662 -p 4672:4672/udp 
@@ -12,7 +12,7 @@ docker run -p 4711:4711 -p 4662:4662 -p 4672:4672/udp
     -v ./amule/conf:/home/amule/.aMule -v ./amule/incoming:/incoming -v ./amule/tmp:/temp tchabaud/amule
 ```
 
-## mongo
+## MongoDB
 
 ```sh
 # create volume
@@ -27,7 +27,7 @@ docker run -p 27017:27017 --name mongo -v ~/Docker/mongo:/data -d mongo
 docker run -d -p 27018:3000  --name mongoclient -v ~/Docker/mongo:/data mongoclient/mongoclient
 ```
 
-## mysql
+## MySQL
 
 ```sh
  docker run -p 3306:3306 --name mysql 
@@ -35,25 +35,23 @@ docker run -d -p 27018:3000  --name mongoclient -v ~/Docker/mongo:/data mongocli
     -d mysql
 ```
 
-## nodered
+## NodeRED
 
 ```sh
 docker run -d  -p 1880:1880 -v ~/Docker/nodered:/data --name nodered nodered/node-red
 ```
 
-## postgres
+## PostgreSQL
 
 ```sh
 # postgres with volume
-docker run -d --name postgres -p 5432:5432 
-    -e POSTGRES_PASSWORD=password -e POSTGRES_USER=mario -e PGDATA=/var/lib/postgresql/data/pgdata 
-    -v ~/Docker/postgres:/var/lib/postgresql/data postgres
+docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_USER=mario -e PGDATA=/var/lib/postgresql/data/pgdata -v ~/Docker/postgres:/var/lib/postgresql/data postgres
 
 # pgadmin
 docker run --name pgadmin -e "PGADMIN_DEFAULT_EMAIL=mario.lazzari@gmail.com" -e "PGADMIN_DEFAULT_PASSWORD=password" -p 5050:80 --link postgres -d dpage/pgadmin4
 ```
 
-## redis
+## Redis
 
 ```sh
 docker run --name redis -v ~/Docker/redis:/data -p 6379:6379 redis
@@ -74,7 +72,7 @@ docker run --name mssql -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=P@ssword2023" -
 docker cp backup.bak sql2019:/var/opt/mssql/data/backup.bak
 ```
 
-## SuperMario
+## Super Mario
 
 ```sh
 docker run -d -p 8600:8080 bharathshetty4/supermario
