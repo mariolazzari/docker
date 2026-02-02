@@ -3,8 +3,8 @@
 ## aMule
 
 ```sh
-docker run -p 4712:4712 -p 4662:4662 -p 4672:4672/udp 
-    -e GUI_PWD=password 
+docker run -p 4712:4712 -p 4662:4662 -p 4672:4672/udp
+    -e GUI_PWD=password
     -v amule/conf:/home/amule/.aMule -v amule/incoming:/incoming -v amule/tmp:/temp tchabaud/amule
 
 docker run -p 4711:4711 -p 4662:4662 -p 4672:4672/udp
@@ -30,8 +30,8 @@ docker run -d -p 27018:3000  --name mongoclient -v ~/Docker/mongo:/data mongocli
 ## MySQL
 
 ```sh
- docker run -p 3306:3306 --name mysql 
-    -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=myorg -e MYSQL_USER=me -e MYSQL_PASSWORD=password 
+ docker run -p 3306:3306 --name mysql
+    -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=myorg -e MYSQL_USER=me -e MYSQL_PASSWORD=password
     -d mysql
 ```
 
@@ -62,11 +62,17 @@ docker run --name redis -v ~/Docker/redis:/data -p 6379:6379 redis
 [Article](https://blog.sqlauthority.com/2019/04/20/sql-server-docker-volume-and-persistent-storage/)
 
 ```sh
-docker run --name mssql -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=P@ssword2023" -p 1433:1433 
-    -v ~/Docker/mssql/data:/var/opt/mssql/data 
-    -v ~/Docker/mssql/log:/var/opt/mssql/log 
-    -v ~/Docker/mssql/secrets:/var/opt/mssql/secrets 
-    -d mcr.microsoft.com/mssql/server:2019-latest
+docker run -d \
+  --name mssql \
+  --platform linux/amd64 \
+  -e 'ACCEPT_EULA=Y' \
+  -e 'MSSQL_SA_PASSWORD=YourStrong!Passw0rd' \
+  -e 'MSSQL_PID=Developer' \
+  -p 1433:1433 \
+  -v mssql_data:/var/opt/mssql \
+  mcr.microsoft.com/mssql/server:2022-latest
+
+
 
 # copy backup file to container
 docker cp backup.bak sql2019:/var/opt/mssql/data/backup.bak
