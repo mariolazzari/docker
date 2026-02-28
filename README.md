@@ -62,11 +62,17 @@ docker run --name redis -v ./redis:/data -p 6379:6379 redis
 [Article](https://blog.sqlauthority.com/2019/04/20/sql-server-docker-volume-and-persistent-storage/)
 
 ```sh
-docker run --name mssql -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=P@ssword2023" -p 1433:1433
-    -v ~/Docker/mssql/data:/var/opt/mssql/data
-    -v ~/Docker/mssql/log:/var/opt/mssql/log
-    -v ~/Docker/mssql/secrets:/var/opt/mssql/secrets
-    -d mcr.microsoft.com/mssql/server:2019-latest
+docker run -d \
+  --name mssql \
+  --platform linux/amd64 \
+  -e 'ACCEPT_EULA=Y' \
+  -e 'MSSQL_SA_PASSWORD=YourStrong!Passw0rd' \
+  -e 'MSSQL_PID=Developer' \
+  -p 1433:1433 \
+  -v mssql_data:/var/opt/mssql \
+  mcr.microsoft.com/mssql/server:2022-latest
+
+
 
 # copy backup file to container
 docker cp backup.bak sql2019:/var/opt/mssql/data/backup.bak
